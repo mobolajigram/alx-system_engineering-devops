@@ -1,0 +1,12 @@
+#!/bin/bash
+cat input |
+    awk '{ $2 = $3 = $4 = $5 = "" ; print }' |
+    sort |
+    uniq -c |
+    sort -k2.2nr -k1.1 |
+    awk '
+{
+    printf "%-20s %d", $2 != p ? $2 : "", $1 ;
+    p=$2 ; for (i=3 ; i<=NF ; i++) printf " %s", $i ;
+    printf "\n"
+}'
