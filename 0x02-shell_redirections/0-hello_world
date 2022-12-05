@@ -1,2 +1,2 @@
 #!/bin/bash
-exho \n "Hello World"
+exho "Hello World" \n
